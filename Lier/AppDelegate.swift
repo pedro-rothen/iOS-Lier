@@ -16,16 +16,27 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func setupDI() {
         let container = DIContainer.shared
-        let feedUseCase = FeedUseCaseImpl(
-            categoryRepository: CategoryRepositoryImpl(
-                remoteDataSource: MockCategoryRemoteDataSource()
-            ), bannerRepostiory: BannerRepositoryImpl(
-                bannerDataSource: MockBannerRemoteDataSourceImpl()
-            ), productRepository: ProductRepositoryImpl(
-                productRemoteDataSource: MockProductRemoteDataSourceImpl()
+        let categoryRepository = CategoryRepositoryImpl(
+            remoteDataSource: MockCategoryRemoteDataSource()
+        )
+        let bannerRepository = BannerRepositoryImpl(
+            bannerDataSource: MockBannerRemoteDataSourceImpl()
+        )
+        let productRepository = ProductRepositoryImpl(
+            productRemoteDataSource: MockProductRemoteDataSourceImpl()
+        )
+        let feedUseCase = GetFeedUseCaseImpl(
+            categoryUseCase: CategoryUseCaseImpl(
+                categoryRepository: categoryRepository
+            ), 
+            bannerUseCase: BannerUseCaseImpl(
+                bannerRepository: bannerRepository
+            ),
+            productUseCase: ProductUseCaseImpl(
+                productRepository: productRepository
             )
         )
-        container.register(FeedUseCase.self, provider: feedUseCase)
+        container.register(GetFeedUseCase.self, provider: feedUseCase)
     }
 }
 

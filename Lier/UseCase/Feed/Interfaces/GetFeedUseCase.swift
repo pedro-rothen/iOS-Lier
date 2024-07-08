@@ -1,5 +1,5 @@
 //
-//  FeedUseCase.swift
+//  GetFeedUseCase.swift
 //  Lier
 //
 //  Created by Pedro on 06-07-24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol FeedUseCase {
+protocol GetFeedUseCase {
     func getFeed() -> AnyPublisher<[FeedEntry], FeedError>
 }
 

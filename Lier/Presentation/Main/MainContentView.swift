@@ -11,7 +11,7 @@ import Combine
 @MainActor
 struct MainContentView: View {
     @State private var searchQuery: String = ""
-    @Environment(MainContentViewModel.self) private var viewModel
+    @State var viewModel: MainContentViewModel
     
     private let columns = [GridItem(.flexible())]
     
@@ -22,9 +22,12 @@ struct MainContentView: View {
             SearchBar()
             Content()
             Spacer()
-            if !viewModel.cartService.items.isEmpty {
-                CartWidgetView()
+            if !viewModel.isCartEmpty() {
+                CartWidgetView(cartService: $viewModel.cartService)
             }
+//            NavigationLink("Detail") {
+//                CartDetailView()
+//            }
         }.ignoresSafeArea()
     }
     
@@ -226,13 +229,13 @@ struct MainContentView: View {
 
 @Observable
 class MainContentViewModel {
-    let cartService: CartService
+    var cartService: CartService
     var entries: [FeedEntry]?
     var uiState: BasicUiState = .loading
     private var disposeBag = Set<AnyCancellable>()
     
     @ObservationIgnored
-    @Injected var feedUseCase: FeedUseCase
+    @Injected var getFeedUseCase: GetFeedUseCase
     
     init(cartService: CartService) {
         self.cartService = cartService
@@ -241,7 +244,7 @@ class MainContentViewModel {
     
     func getEntries() {
         uiState = .loading
-        feedUseCase
+        getFeedUseCase
             .getFeed()
             .sink(receiveCompletion: { [weak self] completion in
                 self?.uiState = switch completion {
@@ -253,6 +256,10 @@ class MainContentViewModel {
             }) { [weak self] in
                 self?.entries = $0
             }.store(in: &disposeBag)
+    }
+    
+    func isCartEmpty() -> Bool {
+        return cartService.isEmpty()
     }
     
     func isAdded(product: Product) -> Bool {
@@ -309,7 +316,6 @@ extension Color {
     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
         //viewModel.uiState = .error
     }
-    return MainContentView()
-        .environment(viewModel)
+    return MainContentView(viewModel: viewModel)
         .environment(cartService)
 }

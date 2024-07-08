@@ -9,6 +9,7 @@ import Foundation
 
 protocol CartService {
     var items: [CartItem] { get }
+    func isEmpty() -> Bool
     func getItem(of product: Product) -> CartItem?
     func addUnit(of product: Product)
     func removeUnit(of product: Product)

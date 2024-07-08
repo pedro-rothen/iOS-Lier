@@ -11,6 +11,10 @@ import Foundation
 class CartServiceImpl: CartService {
     var items = [CartItem]()
     
+    func isEmpty() -> Bool {
+        return items.isEmpty
+    }
+    
     func getItem(of product: Product) -> CartItem? {
         return items.first { $0.product == product }
     }

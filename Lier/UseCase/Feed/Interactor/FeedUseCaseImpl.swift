@@ -8,22 +8,22 @@
 import Foundation
 import Combine
 
-class FeedUseCaseImpl: FeedUseCase {
-    let categoryRepository: CategoryRepository
-    let bannerRepostiory: BannerRepository
-    let productRepository: ProductRepository
+class GetFeedUseCaseImpl: GetFeedUseCase {
+    let categoryUseCase: CategoryUseCase
+    let bannerUseCase: BannerUseCase
+    let productUseCase: ProductUseCase
     
-    init(categoryRepository: CategoryRepository, bannerRepostiory: BannerRepository, productRepository: ProductRepository) {
-        self.categoryRepository = categoryRepository
-        self.bannerRepostiory = bannerRepostiory
-        self.productRepository = productRepository
+    init(categoryUseCase: CategoryUseCase, bannerUseCase: BannerUseCase, productUseCase: ProductUseCase) {
+        self.categoryUseCase = categoryUseCase
+        self.bannerUseCase = bannerUseCase
+        self.productUseCase = productUseCase
     }
     
     func getFeed() -> AnyPublisher<[FeedEntry], FeedError> {
-        let productsPublisher = productRepository.getProducts()
-        let bannersPublisher = bannerRepostiory.getBanners()
-        let promotedBannersPublisher = bannerRepostiory.getPromotedBanners()
-        return categoryRepository
+        let productsPublisher = productUseCase.getProducts()
+        let bannersPublisher = bannerUseCase.getBanners()
+        let promotedBannersPublisher = bannerUseCase.getPromotedBanners()
+        return categoryUseCase
             .getCategories()
             .tryMap { categories in
                 guard !categories.isEmpty else {

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CartWidgetView: View {
-    ///TODO: Wrapper observable to bridge CartService to an Observable object, @State does not allow CartService. We are breaking rules as we are depending on implementation rather than an abstraction.
-    @Environment(CartServiceImpl.self) private var cartService
+    @Binding var cartService: CartService
     
     var body: some View {
         HStack {
@@ -41,5 +40,5 @@ struct CartWidgetView: View {
 }
 
 #Preview {
-    CartWidgetView()
+    CartWidgetView(cartService: .constant(CartServiceImpl()))
 }

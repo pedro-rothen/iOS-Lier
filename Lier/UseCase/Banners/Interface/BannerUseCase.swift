@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+///TODO:  Break into two use case, violating principle of single responsibility
 protocol BannerUseCase {
     func getPromotedBanners() -> AnyPublisher<[Banner], Error>
     func getBanners() -> AnyPublisher<[Banner], Error>
