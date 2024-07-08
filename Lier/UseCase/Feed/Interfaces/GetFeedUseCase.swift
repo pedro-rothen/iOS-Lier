@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol GetFeedUseCase {
-    func getFeed() -> AnyPublisher<[FeedEntry], FeedError>
+    func execute() -> AnyPublisher<[FeedEntry], FeedError>
 }
 
 enum FeedEntry: Identifiable {

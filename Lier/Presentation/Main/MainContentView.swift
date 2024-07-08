@@ -245,7 +245,7 @@ class MainContentViewModel {
     func getEntries() {
         uiState = .loading
         getFeedUseCase
-            .getFeed()
+            .execute()
             .sink(receiveCompletion: { [weak self] completion in
                 self?.uiState = switch completion {
                     case .finished:
@@ -313,9 +313,6 @@ extension Color {
 #Preview {
     let cartService = CartServiceImpl()
     let viewModel = MainContentViewModel(cartService: cartService)
-    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-        //viewModel.uiState = .error
-    }
     return MainContentView(viewModel: viewModel)
         .environment(cartService)
 }

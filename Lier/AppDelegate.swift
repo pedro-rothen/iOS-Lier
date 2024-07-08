@@ -26,13 +26,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             productRemoteDataSource: MockProductRemoteDataSourceImpl()
         )
         let feedUseCase = GetFeedUseCaseImpl(
-            categoryUseCase: CategoryUseCaseImpl(
+            categoriesUseCase: GetCategoriesUseCaseImpl(
                 categoryRepository: categoryRepository
             ), 
-            bannerUseCase: BannerUseCaseImpl(
+            bannersUseCase: GetBannersUseCaseImpl(
                 bannerRepository: bannerRepository
             ),
-            productUseCase: ProductUseCaseImpl(
+            promotedBannersUseCase: GetPromotedBannersUseCaseImpl(
+                bannerRepository: bannerRepository
+            ),
+            productsUseCase: GetProductsUseCaseImpl(
                 productRepository: productRepository
             )
         )

@@ -1,5 +1,5 @@
 //
-//  ProductUseCaseImpl.swift
+//  GetProductsUseCaseImpl.swift
 //  Lier
 //
 //  Created by Pedro on 07-07-24.
@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-class ProductUseCaseImpl: ProductUseCase {
+class GetProductsUseCaseImpl: GetProductsUseCase {
     let productRepository: ProductRepository
     
     init(productRepository: ProductRepository) {
         self.productRepository = productRepository
     }
     
-    func getProducts() -> AnyPublisher<[Product], any Error> {
+    func execute() -> AnyPublisher<[Product], any Error> {
         return productRepository.getProducts()
     }
 }

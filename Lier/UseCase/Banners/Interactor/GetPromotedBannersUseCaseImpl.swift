@@ -1,5 +1,5 @@
 //
-//  BannerUseCaseImpl.swift
+//  GetPromotedBannersUseCase.swift
 //  Lier
 //
 //  Created by Pedro on 06-07-24.
@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-class BannerUseCaseImpl: BannerUseCase {
+class GetPromotedBannersUseCaseImpl: GetPromotedBannersUseCase {
     let bannerRepository: BannerRepository
     
     init(bannerRepository: BannerRepository) {
         self.bannerRepository = bannerRepository
     }
     
-    func getPromotedBanners() -> AnyPublisher<[Banner], any Error> {
+    func execute() -> AnyPublisher<[Banner], any Error> {
         return bannerRepository.getPromotedBanners()
     }
     
