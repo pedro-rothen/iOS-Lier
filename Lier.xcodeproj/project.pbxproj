@@ -37,7 +37,7 @@
 		EB8BCA1A2C3B758800EE96FB /* GetProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA192C3B758800EE96FB /* GetProductsUseCase.swift */; };
 		EB8BCA1C2C3B767900EE96FB /* GetProductsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA1B2C3B767900EE96FB /* GetProductsUseCaseImpl.swift */; };
 		EB8BCA1F2C3B7FBE00EE96FB /* CartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA1E2C3B7FBE00EE96FB /* CartDetailView.swift */; };
-		EB8BCA212C3C471F00EE96FB /* GetFeedUseCaseImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA202C3C471F00EE96FB /* GetFeedUseCaseImplTest.swift */; };
+		EB8BCA212C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA202C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift */; };
 		EB8BCA232C3CAF4900EE96FB /* GetBannersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA222C3CAF4900EE96FB /* GetBannersUseCase.swift */; };
 		EB8BCA252C3CAFFC00EE96FB /* GetBannersUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8BCA242C3CAFFC00EE96FB /* GetBannersUseCaseImpl.swift */; };
 		EBC1DE312C2A5AD700AF6026 /* LierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1DE302C2A5AD700AF6026 /* LierApp.swift */; };
@@ -101,7 +101,7 @@
 		EB8BCA192C3B758800EE96FB /* GetProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsUseCase.swift; sourceTree = "<group>"; };
 		EB8BCA1B2C3B767900EE96FB /* GetProductsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsUseCaseImpl.swift; sourceTree = "<group>"; };
 		EB8BCA1E2C3B7FBE00EE96FB /* CartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDetailView.swift; sourceTree = "<group>"; };
-		EB8BCA202C3C471F00EE96FB /* GetFeedUseCaseImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedUseCaseImplTest.swift; sourceTree = "<group>"; };
+		EB8BCA202C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsUseCaseImplTest.swift; sourceTree = "<group>"; };
 		EB8BCA222C3CAF4900EE96FB /* GetBannersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBannersUseCase.swift; sourceTree = "<group>"; };
 		EB8BCA242C3CAFFC00EE96FB /* GetBannersUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBannersUseCaseImpl.swift; sourceTree = "<group>"; };
 		EBC1DE2D2C2A5AD700AF6026 /* Lier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC1DE412C2A5AD900AF6026 /* LierTests.swift */,
-				EB8BCA202C3C471F00EE96FB /* GetFeedUseCaseImplTest.swift */,
+				EB8BCA202C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift */,
 			);
 			path = LierTests;
 			sourceTree = "<group>";
@@ -667,7 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB8BCA212C3C471F00EE96FB /* GetFeedUseCaseImplTest.swift in Sources */,
+				EB8BCA212C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift in Sources */,
 				EBC1DE422C2A5AD900AF6026 /* LierTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

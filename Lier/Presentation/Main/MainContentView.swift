@@ -99,11 +99,16 @@ struct MainContentView: View {
                 LazyHGrid(rows: [GridItem(.flexible())]) {
                     ForEach(products, id: \.hashValue) { product in
                         VStack(alignment: .leading) {
-                            AsyncImage(url: URL(string: product.image)) {
-                                $0.image?.resizable()
-                            }.frame(width: 150, height: 150)
-                                //.frame(maxWidth: .infinity) Getting glitches with dynamic width
-                                //.aspectRatio(1, contentMode: .fill)
+//                            AsyncImage(url: URL(string: product.image)) {
+//                                $0.image?.resizable()
+//                            }.frame(width: 150, height: 150)
+//                                //.frame(maxWidth: .infinity) Getting glitches with dynamic width
+//                                //.aspectRatio(1, contentMode: .fill)
+                            
+                            //Finally got blocked by Mr.Walton
+                            Image(.bread)
+                                .resizable()
+                                .frame(width: 150, height: 150)
                             Text("$\(Int(product.price))")
                                 .fontWeight(.bold)
                             Text(product.name)
