@@ -14,14 +14,6 @@ final class GetProductsUseCaseImplTest: XCTestCase {
     var mockProductRepository: MockProductRepository!
     var disposeBag = Set<AnyCancellable>()
     
-    class MockProductRepository: ProductRepository {
-        var getProductsResult: Result<[Product], Error> = .success([])
-        
-        func getProducts() -> AnyPublisher<[Product], any Error> {
-            Result.Publisher(getProductsResult).eraseToAnyPublisher()
-        }
-    }
-    
     override func setUp() {
         super.setUp()
         mockProductRepository = MockProductRepository()
@@ -36,12 +28,12 @@ final class GetProductsUseCaseImplTest: XCTestCase {
     
     func testGetProductsSuccess() {
         //Arrange
-        let expectedProducts = [Product(name: "Pan", image: "", price: 100)]
-        mockProductRepository.getProductsResult = .success(expectedProducts)
+        let expectedProducts = ProductStub.products
+        mockProductRepository.stubbedProducts = Just(expectedProducts).setFailureType(to: Error.self).eraseToAnyPublisher()
         
         //Act
         var receivedProducts: [Product]?
-        let expectation = expectation(description: "Get products expectations")
+        let expectation = expectation(description: "Products fetched")
         getProductsUseCase
             .execute()
             .sink(receiveCompletion: { completion in
@@ -60,4 +52,17 @@ final class GetProductsUseCaseImplTest: XCTestCase {
         //Assert
         XCTAssertEqual(receivedProducts, expectedProducts)
     }
+}
+
+class MockProductRepository: ProductRepository {
+    var stubbedProducts: AnyPublisher<[Product], Error>!
+    
+    func getProducts() -> AnyPublisher<[Product], Error> {
+        return stubbedProducts
+    }
+}
+
+
+struct ProductStub {
+    static let products = [Product(name: "Pan", image: "", price: 100)]
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB38AED12C42067F0011D0CE /* ProductRepositoryImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38AED02C42067F0011D0CE /* ProductRepositoryImplTest.swift */; };
+		EB38AED42C4218950011D0CE /* GetProductsIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38AED32C4218950011D0CE /* GetProductsIntegrationTest.swift */; };
 		EB81C7A32C38D3A700DE4815 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81C7A22C38D3A700DE4815 /* DIContainer.swift */; };
 		EB81C7A52C38E8C500DE4815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81C7A42C38E8C500DE4815 /* AppDelegate.swift */; };
 		EB81C7AB2C398A1700DE4815 /* GetFeedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB81C7AA2C398A1700DE4815 /* GetFeedUseCase.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB38AED02C42067F0011D0CE /* ProductRepositoryImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepositoryImplTest.swift; sourceTree = "<group>"; };
+		EB38AED32C4218950011D0CE /* GetProductsIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsIntegrationTest.swift; sourceTree = "<group>"; };
 		EB81C7A22C38D3A700DE4815 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		EB81C7A42C38E8C500DE4815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB81C7AA2C398A1700DE4815 /* GetFeedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedUseCase.swift; sourceTree = "<group>"; };
@@ -144,6 +148,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB38AECD2C4205E80011D0CE /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				EB38AED22C4218530011D0CE /* Integration */,
+				EB38AECF2C4205FE0011D0CE /* Repository */,
+				EB38AECE2C4205F70011D0CE /* UseCase */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		EB38AECE2C4205F70011D0CE /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EB8BCA202C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EB38AECF2C4205FE0011D0CE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EB38AED02C42067F0011D0CE /* ProductRepositoryImplTest.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EB38AED22C4218530011D0CE /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				EB38AED32C4218950011D0CE /* GetProductsIntegrationTest.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
 		EB81C7A02C38D2C200DE4815 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,8 +472,8 @@
 		EBC1DE402C2A5AD900AF6026 /* LierTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB38AECD2C4205E80011D0CE /* Product */,
 				EBC1DE412C2A5AD900AF6026 /* LierTests.swift */,
-				EB8BCA202C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift */,
 			);
 			path = LierTests;
 			sourceTree = "<group>";
@@ -669,6 +707,8 @@
 			files = (
 				EB8BCA212C3C471F00EE96FB /* GetProductsUseCaseImplTest.swift in Sources */,
 				EBC1DE422C2A5AD900AF6026 /* LierTests.swift in Sources */,
+				EB38AED42C4218950011D0CE /* GetProductsIntegrationTest.swift in Sources */,
+				EB38AED12C42067F0011D0CE /* ProductRepositoryImplTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
